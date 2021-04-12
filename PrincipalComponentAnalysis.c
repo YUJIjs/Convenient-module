@@ -1,7 +1,3 @@
-/*
- * C言語のサンプルプログラム - Webkaru
- * - 入力した行列の「転置行列」を表示 -
- */
 #include <stdio.h>
 
 int row, column;

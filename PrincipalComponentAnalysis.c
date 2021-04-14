@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int row, column;
 int i, j;
 int matrix[10][10];
 int trans[10][10];
+
 
 //行列を生成する。
 void generate_matrix();
@@ -15,9 +17,11 @@ void answer_inverse_matrix();
 void answer_symmetric_matrix();
 //ToDo
 //行列の要素をファイルから読み込む関数を作る。
+void file_read_matrix();
 
 int main(void)
 {
+ 
     printf("行数 = ");
     scanf("%d", &row);
     printf("列数 = ");
@@ -36,7 +40,7 @@ int main(void)
 
     generate_matrix();
     answer_transposed_matrix();
-
+    file_read_matrix();
 
     return 0;
 }
@@ -80,4 +84,24 @@ void answer_transposed_matrix()
                 printf("\n");
         }
     }
+}
+
+void file_read_matrix(){
+
+    FILE *fp; // 
+	char fname[] = "test.txt";
+    int chr;
+
+	fp = fopen(fname, "r"); //read
+	if(fp == NULL) {
+		printf("%s ファイルの読み込みに失敗しました\n", fname);
+	} else {
+		printf("%s ファイルの読み込みに成功しました。\n", fname);
+	}
+
+    while((chr = fgetc(fp)) != EOF) {
+		putchar(chr);
+	}
+ 
+	fclose(fp); // ファイルを閉じる
 }
